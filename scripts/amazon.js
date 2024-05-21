@@ -24,7 +24,7 @@ products.forEach((product) => {
         </div>
 
         <div class="product-price">
-          ${(product.priceCents / 100).toFixed(2)}
+          $${(product.priceCents / 100).toFixed(2)}
         </div>
 
         <div class="product-quantity-container">
@@ -65,8 +65,8 @@ document.querySelector('.js-products-grid')
 function updateCartQuantity() {
   let cartQuantity = 0;
 
-    cart.forEach((item) => {
-      cartQuantity += item.quantity;
+    cart.forEach((cartItem) => {
+      cartQuantity += cartItem.quantity;
     });
 
     document.querySelector('.js-cart-quantity')

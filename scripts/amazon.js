@@ -74,6 +74,14 @@ function updateCartQuantity() {
   
 updateCartQuantity();
 
+ /* if (cartQuantity === 0) {
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = ''; 
+} else {
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = cartQuantity;
+} */
+
 
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {

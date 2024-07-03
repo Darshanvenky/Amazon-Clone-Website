@@ -148,7 +148,7 @@ console.log(businessCart);
 
 
 
-export function calculateCartQuantity() {
+/* export function calculateCartQuantity() {
   let cartQuantity = 0;
 
   cart.forEach((cartItem) => {
@@ -156,6 +156,6 @@ export function calculateCartQuantity() {
   });
   return cartQuantity;
 
-}
+} */
 
 

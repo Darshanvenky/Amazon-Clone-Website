@@ -8,6 +8,8 @@ import {renderPaymentSummary} from './checkout/paymentsSummary.js';
 
 //import '../data/cart-class.js';
 
+//import '../data/car.js';
+
 
 renderCheckoutHeader();
 renderOrderSummary();

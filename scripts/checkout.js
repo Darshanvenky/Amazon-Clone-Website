@@ -10,6 +10,8 @@ import {renderPaymentSummary} from './checkout/paymentsSummary.js';
 
 //import '../data/car.js';
 
+import '../data/backend-practice.js';
+
 
 renderCheckoutHeader();
 renderOrderSummary();

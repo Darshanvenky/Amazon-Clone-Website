@@ -92,7 +92,8 @@ async function loadPage() {
 
   document.querySelectorAll('.js-buy-again').forEach((button) => {
     button.addEventListener('click', () => {
-      addToCart(button.dataset.productId);
+      const productId = button.dataset.productId;
+      addToCart(productId, 1);
 
 
 
@@ -104,7 +105,11 @@ async function loadPage() {
         </span>
         `;
       }, 1000);
+
+      renderCheckoutHeader();
+
     });
+   
   });
 
 }

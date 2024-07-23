@@ -54,7 +54,7 @@ function renderProductsGrid()
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -72,7 +72,7 @@ function renderProductsGrid()
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -107,10 +107,10 @@ function renderProductsGrid()
   } else {
     document.querySelector('.js-cart-quantity')
       .innerHTML = cartQuantity;
-  } */
+  } */// this was not used in the main project but it is the solution for 14 ass
 
 
-  document.querySelectorAll('.js-add-to-cart')
+  /*document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
       button.addEventListener('click', () => {
         const productId = button.dataset.productId;
@@ -119,13 +119,71 @@ function renderProductsGrid()
 
       });
 
+    }); */// this is acc to the code of lesson 18
+
+
+
+  const addedMessageTimeouts = {};
+
+  document.querySelectorAll('.js-add-to-cart')
+    .forEach((button) => {
+      button.addEventListener('click', () => {
+      //const productId = button.dataset.productId;
+
+      const {productId} = button.dataset; //destructuring
+
+      
+
+      const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
+
+
+      const quantity = Number(quantitySelector.value);
+
+      addToCart(productId, quantity);
+      updateCartQuantity();
+
+
+      const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
+
+      addedMessage.classList.add('added-message');
+
+
+      setTimeout(() => {
+        const previousTimeoutId = addedMessageTimeouts[productId];
+
+        if (previousTimeoutId) {
+          clearTimeout(previousTimeoutId);
+        }
+
+        const timeoutId = setTimeout(() => {
+
+        addedMessage.classList.remove('added-message');
+
+        },2000);
+
+        addedMessageTimeouts[productId] = timeoutId;
+      });
+      
     });
+
+  });
+
 
   document.querySelector('.js-search-button')
     .addEventListener('click', () => {
       const search = document.querySelector('.js-search-bar').value;
       window.location.href = `amazon.html?search=${search}`;
     });
+
+    document.querySelector('.js-search-bar')
+      .addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          const searchTerm = document.querySelector('.js-search-bar').value;
+          window.location.href = `amazon.html?search=${searchTerm}`;
+
+        }
+
+      });
 
 }
 
